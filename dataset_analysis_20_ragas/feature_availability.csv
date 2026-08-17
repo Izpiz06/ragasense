@@ -1,0 +1,9 @@
+tradition,feature,available,total,percentage
+Carnatic,has_pitch,1392,1392,100.0
+Carnatic,has_pitch_post_processed,1392,1392,100.0
+Carnatic,has_tonic,1392,1392,100.0
+Carnatic,has_tonic_fine,1392,1392,100.0
+Hindustani,has_pitch,1000,1000,100.0
+Hindustani,has_pitch_post_processed,1000,1000,100.0
+Hindustani,has_tonic,1000,1000,100.0
+Hindustani,has_tonic_fine,1000,1000,100.0

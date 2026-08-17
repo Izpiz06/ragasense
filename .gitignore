@@ -7,3 +7,8 @@ data/Y_test.npy
 data/Y_train.npy
 src/gru_losslist_epochs.npy
 src/lstm_losslist_epochs.npy
+venv/
+.venv/
+env/
+ENV/
+dataset/

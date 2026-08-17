@@ -1,0 +1,96 @@
+RAGASENSE — COMBINED DATASET ANALYSIS
+================================================================================
+
+Dataset root:
+/home/izpiz/coding/automatic-raga-recognition/dataset/RagaDataset
+
+Total records: 780
+Unique raga IDs: 70
+Unique raga names: 69
+Unique MBIDs: 780
+
+RECORDS BY TRADITION
+tradition
+Carnatic      480
+Hindustani    300
+Name: count, dtype: int64
+
+RAGAS BY TRADITION
+tradition
+Carnatic      40
+Hindustani    30
+Name: raga, dtype: int64
+
+TOP RAGAS
+raga
+Śrī                 22
+Mōhanaṁ             12
+Ṣanmukhapriya       12
+Behāg               12
+Tōḍi                12
+Madhyamāvati        12
+Suraṭi              12
+Sāvēri              12
+Mukhāri             12
+Kāmavardani         12
+Varāḷi              12
+Ānandabhairavi      12
+Bhairavi            12
+Sindhubhairavi      12
+Kamās               12
+Bēgaḍa              12
+Kānaḍa              12
+Bilahari            12
+Dhanyāsi            12
+Dēvagāndhāri        12
+Śrīranjani          12
+Pūrvīkaḷyāṇi        12
+Sahānā              12
+Śankarābharaṇaṁ     12
+Kāpi                12
+Yadukula kāṁbōji    12
+Nāṭakurinji         12
+Kēdāragauḷa         12
+Nāṭa                12
+Kalyāṇi             12
+Aṭāna               12
+Māyāmāḷavagauḷa     12
+Harikāmbhōji        12
+Karaharapriya       12
+Gauḷa               12
+Kāṁbhōji            12
+Hussēnī             12
+Rītigauḷa           12
+Sāma                12
+Sencuruṭṭi          12
+Bāgēśrī             10
+Tōḍī                10
+Mārvā               10
+Kēdār               10
+Lalit               10
+Bhairav             10
+Bihāg               10
+Yaman kalyāṇ        10
+Madhuvanti          10
+Basant              10
+Name: count, dtype: int64
+
+MISSING VALUES
+tradition    0
+path         0
+mbid         0
+raga_id      0
+raga         0
+filename     0
+extension    0
+dtype: int64
+
+FEATURE FILE EXTENSIONS
+tradition         Carnatic  Hindustani
+extension                             
+.flatsegnyas           480         300
+.pitch                 480         300
+.pitchsilintrppp       480         300
+.tanisegknn            480         300
+.tonic                 480         300
+.tonicfine             480         300

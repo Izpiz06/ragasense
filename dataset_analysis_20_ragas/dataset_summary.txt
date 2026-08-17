@@ -1,0 +1,41 @@
+DEEPSRGM — 20 RAGA DATASET ANALYSIS
+================================================================================
+
+Dataset root:
+/home/izpiz/coding/automatic-raga-recognition/dataset/RagaDataset
+
+Selected ragas: 20
+Total feature records: 2392
+
+Traditions: 2
+Ragas found: 20
+
+RAGA DISTRIBUTION
+--------------------------------------------------------------------------------
+Carnatic     | Aṭāna                          | 12 recordings
+Carnatic     | Bhairavi                       | 12 recordings
+Carnatic     | Kalyāṇi                        | 12 recordings
+Carnatic     | Kāpi                           | 12 recordings
+Carnatic     | Kāṁbhōji                       | 12 recordings
+Carnatic     | Kēdāragauḷa                    | 12 recordings
+Carnatic     | Mōhanaṁ                        | 12 recordings
+Carnatic     | Rītigauḷa                      | 12 recordings
+Carnatic     | Tōḍi                           | 12 recordings
+Carnatic     | Śankarābharaṇaṁ                | 12 recordings
+Hindustani   | Bhairav                        | 10 recordings
+Hindustani   | Bihāg                          | 10 recordings
+Hindustani   | Bilāsakhānī tōḍī               | 10 recordings
+Hindustani   | Darbāri                        | 10 recordings
+Hindustani   | Jōg                            | 10 recordings
+Hindustani   | Khamāj                         | 10 recordings
+Hindustani   | Miyān malhār                   | 10 recordings
+Hindustani   | Mālkauns                       | 10 recordings
+Hindustani   | Yaman kalyāṇ                   | 10 recordings
+Hindustani   | Śrī                            | 10 recordings
+
+FEATURE AVAILABILITY
+--------------------------------------------------------------------------------
+has_pitch                     : 2392/2392 (100.00%)
+has_pitch_post_processed      : 2392/2392 (100.00%)
+has_tonic                     : 2392/2392 (100.00%)
+has_tonic_fine                : 2392/2392 (100.00%)
