@@ -102,7 +102,7 @@ SELECTED_RAGAS = {
         "Bilāsakhānī tōḍī",
         "Darbāri",
         "Khamāj",
-        "Mālkauns",
+        "Dēś",
         "Miyān malhār",
         "Yaman kalyāṇ",
         "Śrī",

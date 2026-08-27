@@ -1,3 +1,3 @@
 tradition,feature_records,unique_ragas,recordings,pitch_files,post_processed_pitch_files,tonic_files,tonic_fine_files,total_pitch_frames,mean_duration_seconds,mean_voiced_ratio
 Carnatic,1392,10,120,1392,1392,1392,1392,321525372,1295.1091275011495,0.7915004458047799
-Hindustani,1000,10,100,1000,1000,1000,1000,293078280,1641.3232251937777,0.7962366433206494
+Hindustani,1000,10,100,1000,1000,1000,1000,271587610,1508.4341540977778,0.801627641205224

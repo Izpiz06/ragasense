@@ -26,10 +26,10 @@ Hindustani   | Bhairav                        | 10 recordings
 Hindustani   | Bihāg                          | 10 recordings
 Hindustani   | Bilāsakhānī tōḍī               | 10 recordings
 Hindustani   | Darbāri                        | 10 recordings
+Hindustani   | Dēś                            | 10 recordings
 Hindustani   | Jōg                            | 10 recordings
 Hindustani   | Khamāj                         | 10 recordings
 Hindustani   | Miyān malhār                   | 10 recordings
-Hindustani   | Mālkauns                       | 10 recordings
 Hindustani   | Yaman kalyāṇ                   | 10 recordings
 Hindustani   | Śrī                            | 10 recordings
 
