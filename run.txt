@@ -1,0 +1,27 @@
+The paths were relative to the repository root, not ragasense/dashboard; and the static server/API must run in separate terminals.
+
+  Use this setup:
+
+  Terminal 1 — API:
+
+  cd /home/izpiz/coding/automatic-raga-recognition
+  .venv/bin/pip install -r ragasense/requirements-live.txt
+  .venv/bin/uvicorn ragasense.live_inference:app --host 127.0.0.1 --port 8001
+
+  Terminal 2 — dashboard:
+
+  cd /home/izpiz/coding/automatic-raga-recognition/ragasense/dashboard
+  python3 -m http.server 8002
+
+  Then open:
+
+  http://127.0.0.1:8002
+
+  Port 8000 is already occupied in your shell environment, so 8002 avoids that conflict. I also updated the API’s local CORS configuration so it accepts any localhost / 127.0.0.1
+  dashboard port.
+
+  For UI-only testing without the backend/model service, open:
+
+  http://127.0.0.1:8002/?liveMock=1
+
+  That development flag is the only path that enables mock inference.

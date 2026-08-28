@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="RagaSense — DeepSRGM melodic raga recognition workspace" />
+    <title>RagaSense · DeepSRGM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Teko:wght@500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Primary navigation">
+        <a class="brand" href="#analysis" data-route="analysis" aria-label="RagaSense home">
+          <span class="brand-mark" aria-hidden="true">R</span>
+          <span><strong>RagaSense</strong><small>DEEPSRGM ENGINE</small></span>
+        </a>
+        <div class="project-chip"><span class="status-dot"></span><span>20-raga proof of concept</span></div>
+        <nav class="nav-list">
+          <a href="#analysis" data-route="analysis"><span>◌</span>Workspace</a>
+          <a href="#corpus" data-route="corpus"><span>▦</span>Corpus</a>
+          <a href="#architecture" data-route="architecture"><span>⌘</span>Architecture</a>
+          <a href="#evaluation" data-route="evaluation"><span>◫</span>Evaluation</a>
+        </nav>
+        <div class="sidebar-bottom">
+          <button class="button button-primary live-action" type="button">● Start live analysis</button>
+          <p>Relative pitch · recording-level evaluation</p>
+        </div>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <button class="menu-button" type="button" aria-label="Open navigation">☰</button>
+          <div class="crumb">RAGASENSE <span>/</span> <b id="page-crumb">WORKSPACE</b></div>
+          <div class="topbar-actions"><span class="run-pill">RUN RS-20-042</span><button class="icon-button" aria-label="Settings">⚙</button></div>
+        </header>
+
+        <section class="page" id="analysis" data-page>
+          <div class="page-heading split-heading">
+            <div><p class="eyebrow">Live-ready melodic recognition</p><h1>Raga analysis</h1><p id="analysis-mode-description">Identify raga from tonic-normalized melodic pitch, never absolute tuning.</p></div>
+            <div class="segmented" id="analysis-mode" role="group" aria-label="Recognition tradition mode"><button class="is-selected" data-mode="all" aria-pressed="true">All</button><button data-mode="Carnatic" aria-pressed="false">Carnatic</button><button data-mode="Hindustani" aria-pressed="false">Hindustani</button></div>
+          </div>
+          <div class="analysis-grid">
+            <article class="panel source-panel">
+              <div class="panel-heading"><div><p class="eyebrow">Input</p><h2>Bring in a performance</h2></div><span class="tag">Pitch sequence</span></div>
+              <div class="source-options">
+                <label class="drop-zone" for="audio-file"><span class="source-icon">↑</span><strong>Upload recording</strong><small>WAV, MP3, or FLAC</small><input id="audio-file" type="file" accept="audio/*" /></label>
+                <button class="listen-card live-action" type="button"><span class="mic">●</span><strong>Listen live</strong><small id="live-status">Microphone standing by</small><span class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span></button>
+              </div>
+              <div class="live-controls"><select id="input-device" aria-label="Microphone input device"><option value="">Default microphone</option></select><button class="button button-quiet" id="stop-live" type="button" disabled>Stop listening</button><span class="live-status" id="live-state" role="status">Stopped</span></div>
+              <div class="live-readouts"><span><small>Pitch</small><b id="live-note">—</b></span><span><small>Frequency</small><b id="live-frequency">— Hz</b></span><span><small>Input confidence</small><b id="live-pitch-confidence">—</b></span><span><small>Duration</small><b id="live-duration">00:00</b></span></div>
+              <div class="level-meter" aria-label="Audio input level"><i id="audio-level"></i></div>
+              <canvas id="live-waveform" class="live-canvas" width="800" height="38" aria-label="Live audio waveform"></canvas>
+              <p class="input-status" id="input-status">No recording selected. Upload a file or start a live session.</p>
+            </article>
+            <article class="panel tonic-panel">
+              <div class="panel-heading"><div><p class="eyebrow">Normalization</p><h2>Tonic / Sa</h2></div><span class="tag tag-success">Relative</span></div>
+              <div class="tonic-reading"><strong id="tonic-note">A</strong><span id="tonic-hz">110.00 Hz · fixed reference</span></div>
+              <div class="tonic-controls"><button class="button button-primary" id="auto-tonic" type="button">Auto-detect</button><button class="button button-quiet" id="manual-tonic" type="button">Set manually</button></div>
+            </article>
+            <article class="panel contour-panel">
+              <div class="panel-heading"><div><p class="eyebrow">Melodic contour</p><h2>Relative pitch trajectory</h2></div><span class="mono">0:00 / 00:00</span></div>
+              <div class="contour-chart" aria-label="Example normalized pitch contour">
+                <span class="grid-line l1"></span><span class="grid-line l2"></span><span class="grid-line tonic-line"></span><span class="grid-line l4"></span><span class="grid-line l5"></span>
+                <svg viewBox="0 0 800 260" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="line" x1="0" x2="1"><stop stop-color="#f6a65d"/><stop offset="1" stop-color="#ffc38f"/></linearGradient></defs><path d="M0 162 C30 155 45 193 70 179 S105 120 138 145 S185 135 220 152 S260 180 291 125 S338 50 371 89 S411 168 446 149 S481 105 509 122 S539 187 570 171 S605 91 635 116 S668 155 700 128 S745 82 800 103" fill="none" stroke="url(#line)" stroke-width="4" vector-effect="non-scaling-stroke"/></svg>
+                <span class="sa-label">Sa</span><span class="axis-label top">+1200¢</span><span class="axis-label bottom">−1200¢</span>
+              </div>
+              <div class="chart-foot"><span>Quantized to 256 relative-pitch tokens</span><span>Sequence window 5,000 frames</span></div>
+            </article>
+            <aside class="prediction-stack">
+              <article class="panel prediction-panel"><p class="eyebrow">Current prediction</p><h2 id="prediction-name">Awaiting input</h2><p class="tradition-text" id="prediction-tradition">Tradition —</p><div class="mode-indicator" id="mode-indicator">ALL TRADITIONS</div><div class="confidence"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="51"></circle><circle class="confidence-value" cx="60" cy="60" r="51"></circle></svg><strong id="confidence-value">—</strong><small>CONFIDENCE</small></div><p id="prediction-note">Predictions appear after a valid sequence is available.</p></article>
+              <article class="panel candidates"><div class="panel-heading"><h2>Top candidates</h2><span class="mono">aggregated</span></div><div id="candidates-list"><p class="empty-state">No candidate scores yet.</p></div><canvas id="confidence-history" class="live-canvas confidence-canvas" width="360" height="32" aria-label="Prediction confidence over time"></canvas></article>
+            </aside>
+          </div>
+        </section>
+
+        <section class="page" id="corpus" data-page hidden>
+          <div class="page-heading"><p class="eyebrow">Dataset corpus</p><h1>Annotated melodic recordings</h1><p>Recordings are retained as the atomic split unit, so windows from one performance never leak into held-out evaluation.</p></div>
+          <div class="stat-grid" id="corpus-stats"></div>
+          <div class="panel corpus-panel"><div class="toolbar"><label class="search"><span>⌕</span><input id="raga-search" placeholder="Search raga or tradition" /></label><select id="tradition-filter"><option value="all">All traditions</option><option value="Carnatic">Carnatic</option><option value="Hindustani">Hindustani</option></select></div><div class="table-wrap"><table><thead><tr><th>Tradition</th><th>Raga</th><th class="number">Recordings</th><th class="number">Held out</th><th>Feature coverage</th></tr></thead><tbody id="corpus-table"></tbody></table></div></div>
+        </section>
+
+        <section class="page" id="architecture" data-page hidden>
+          <div class="page-heading"><p class="eyebrow">Model architecture</p><h1>DeepSRGM sequence engine</h1><p>A compact view of the actual experiment configuration and the tonic-independent information flow.</p></div>
+          <div class="architecture-grid"><article class="panel"><div class="panel-heading"><div><p class="eyebrow">Information flow</p><h2>From performance to raga</h2></div><span class="tag">Tonic-independent</span></div><ol class="pipeline"><li><b>Pitch features</b><small>Extract melodic F0 from recording or live microphone.</small></li><li><b>Sa normalization</b><small>Convert each frequency into cents relative to the detected tonic.</small></li><li><b>Pitch-token quantization</b><small>Map normalized contour into the 256-token vocabulary.</small></li><li><b>Embedding + LSTM</b><small>Model temporal melodic patterns over fixed 5,000-frame windows.</small></li><li><b>Classifier + aggregation</b><small>Score raga windows, then produce recording-level predictions.</small></li></ol></article><aside class="architecture-side"><article class="panel"><p class="eyebrow">Experiment configuration</p><h2>20-raga baseline</h2><dl class="config-list" id="config-list"></dl></article><article class="panel"><p class="eyebrow">Principle</p><blockquote>“The model learns melodic structure relative to Sa, so a violinist’s reference pitch does not redefine the raga.”</blockquote></article></aside></div>
+        </section>
+
+        <section class="page" id="evaluation" data-page hidden>
+          <div class="page-heading split-heading"><div><p class="eyebrow">Held-out recording evaluation</p><h1>Evidence, not window leakage</h1><p>Metrics are calculated from recording-level labels and predictions saved by the 20-raga experiment.</p></div><a class="button button-quiet" href="../ragasense_deepsrgm_results/evaluation/recording_predictions.csv">Export predictions</a></div>
+          <div class="stat-grid" id="evaluation-stats"></div>
+          <div class="evaluation-grid"><article class="panel matrix-panel"><div class="panel-heading"><div><p class="eyebrow">Confusion matrix</p><h2>Held-out recordings</h2></div><span class="mono">40 recordings</span></div><div class="matrix-wrap" id="matrix"></div><p class="chart-foot">Rows = true raga · columns = predicted raga. Each cell is normalized by its true-label row.</p></article><article class="panel"><div class="panel-heading"><div><p class="eyebrow">Per-raga performance</p><h2>F1 by held-out raga</h2></div><span class="mono">macro avg</span></div><div class="raga-metrics" id="raga-metrics"></div></article></div>
+        </section>
+      </main>
+    </div>
+    <script src="app.js"></script>
+    <script type="module" src="live-controller.js"></script>
+  </body>
+</html>

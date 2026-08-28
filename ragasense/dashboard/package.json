@@ -1,0 +1,8 @@
+{
+  "name": "ragasense-dashboard-live-tests",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test:live": "node live-audio.test.mjs"
+  }
+}
