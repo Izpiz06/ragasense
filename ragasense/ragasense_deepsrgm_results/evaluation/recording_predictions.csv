@@ -1,0 +1,41 @@
+recording_idx,true_class,true_raga,pred_class,pred_raga,votes,correct
+0,0,Aṭāna,0,Aṭāna,0.835,1
+1,0,Aṭāna,5,Kēdāragauḷa,0.555,0
+2,0,Aṭāna,0,Aṭāna,0.77,1
+3,1,Bhairavi,1,Bhairavi,0.82,1
+4,1,Bhairavi,1,Bhairavi,0.91,1
+5,1,Bhairavi,1,Bhairavi,0.75,1
+6,2,Kalyāṇi,2,Kalyāṇi,0.63,1
+7,2,Kalyāṇi,18,Yaman kalyāṇ,0.46,0
+8,2,Kalyāṇi,2,Kalyāṇi,0.845,1
+9,3,Kāpi,3,Kāpi,0.815,1
+10,3,Kāpi,3,Kāpi,0.815,1
+11,3,Kāpi,3,Kāpi,0.62,1
+12,4,Kāṁbhōji,4,Kāṁbhōji,0.825,1
+13,4,Kāṁbhōji,4,Kāṁbhōji,0.78,1
+14,4,Kāṁbhōji,4,Kāṁbhōji,0.615,1
+15,5,Kēdāragauḷa,5,Kēdāragauḷa,0.77,1
+16,5,Kēdāragauḷa,5,Kēdāragauḷa,0.715,1
+17,5,Kēdāragauḷa,5,Kēdāragauḷa,0.805,1
+18,6,Mōhanaṁ,6,Mōhanaṁ,0.645,1
+19,6,Mōhanaṁ,6,Mōhanaṁ,0.855,1
+20,6,Mōhanaṁ,6,Mōhanaṁ,0.625,1
+21,7,Rītigauḷa,7,Rītigauḷa,0.82,1
+22,7,Rītigauḷa,7,Rītigauḷa,1.0,1
+23,7,Rītigauḷa,7,Rītigauḷa,0.865,1
+24,8,Tōḍi,8,Tōḍi,0.93,1
+25,8,Tōḍi,8,Tōḍi,0.965,1
+26,8,Tōḍi,8,Tōḍi,0.65,1
+27,9,Śankarābharaṇaṁ,9,Śankarābharaṇaṁ,0.59,1
+28,9,Śankarābharaṇaṁ,9,Śankarābharaṇaṁ,0.76,1
+29,9,Śankarābharaṇaṁ,9,Śankarābharaṇaṁ,0.795,1
+30,10,Bhairav,10,Bhairav,0.845,1
+31,11,Jōg,11,Jōg,0.395,1
+32,12,Bihāg,12,Bihāg,0.81,1
+33,13,Bilāsakhānī tōḍī,13,Bilāsakhānī tōḍī,0.94,1
+34,14,Darbāri,14,Darbāri,0.775,1
+35,15,Khamāj,15,Khamāj,0.77,1
+36,16,Dēś,16,Dēś,0.715,1
+37,17,Miyān malhār,17,Miyān malhār,0.81,1
+38,18,Yaman kalyāṇ,18,Yaman kalyāṇ,0.92,1
+39,19,Śrī,19,Śrī,1.0,1

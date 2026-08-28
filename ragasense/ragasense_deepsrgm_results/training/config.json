@@ -1,0 +1,33 @@
+{
+  "experiment": "deepSRGM_20_ragas",
+  "num_classes": 20,
+  "model": {
+    "rnn": "lstm",
+    "input_length": 5000,
+    "embedding_size": 128,
+    "hidden_size": 768,
+    "num_layers": 1,
+    "num_classes": 20,
+    "vocab_size": 256,
+    "drop_prob": 0.3
+  },
+  "preprocessing": {
+    "k": 5,
+    "seq_len": 5000,
+    "n_windows": 200,
+    "seed": 42
+  },
+  "training": {
+    "epochs": 20,
+    "lr": 0.0001,
+    "batch_size": 40,
+    "margin_vote_threshold": 0.6
+  },
+  "dataset": {
+    "root": "/kaggle/input/datasets/izpiz06/ragadataset/RagaDataset",
+    "train_per_raga": {
+      "Carnatic": 9,
+      "Hindustani": 9
+    }
+  }
+}
