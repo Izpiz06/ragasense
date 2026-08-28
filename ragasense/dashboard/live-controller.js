@@ -41,16 +41,28 @@ class LiveAnalysisController {
       this.setState("Error", message); this.stop(false);
     }
   }
-  stop(showStatus = true) {
+  async stop(showStatus = true) {
+    const finalSequence = this.sequence.ready ? this.sequence.snapshot() : null;
     this.running = false; this.audio.stop(); this.abortController?.abort(); this.abortController = null; this.inferencePending = false; $("stop-live").disabled = true;
-    if (showStatus) this.setState("Stopped", "Live analysis stopped. Microphone access has been released.");
+    if (!showStatus) return;
+    if (!finalSequence) {
+      const missing = this.sequence.length - this.sequence.values.length;
+      this.setState("Stopped", `Stopped. A final DeepSRGM result requires ${missing.toLocaleString()} more voiced frames (5,000 total).`);
+      return;
+    }
+    this.setState("Processing", "Finalizing the recorded melodic sequence…");
+    try {
+      const result = await this.client.analyze(finalSequence, this.preprocessor.tonic, window.ragaSenseLive?.getMode?.() || "all");
+      const smooth = this.smoother.add(result); this.renderPrediction(result, { ...smooth, stable: true });
+      this.setState("Stopped", "Final raga prediction is shown above. Microphone access has been released.");
+    } catch (error) { this.setState("Error", this.mock ? error.message : "The final sequence was captured, but the inference service is unavailable."); }
   }
   resetSequence() { this.sequence.clear(); this.smoother.clear(); this.contour = []; this.confidenceHistory = []; this.drawConfidenceHistory(); this.resetPrediction(); }
   resetPrediction() { $("prediction-name").textContent = "Collecting melody"; $("prediction-tradition").textContent = "Tradition —"; $("confidence-value").textContent = "—"; document.querySelector(".confidence-value").style.strokeDashoffset = 320; $("prediction-note").textContent = "Collecting melodic information…"; $("candidates-list").innerHTML = `<p class="empty-state">Waiting for a stable melodic sequence.</p>`; }
   onAudioFrame(samples, sampleRate) {
     if (!this.running && !this.audio.active) return;
     const pitch = this.tracker.detect(samples, sampleRate); this.drawWaveform(samples); this.renderFrame(pitch);
-    if (!pitch.frequency || pitch.confidence < .55) return;
+    if (!pitch.frequency || pitch.confidence < .45) { $("input-status").textContent = "Listening — waiting for a clear voiced violin pitch…"; return; }
     this.sequence.push(this.preprocessor.quantize(pitch.frequency));
     if (!this.sequence.ready) { $("input-status").textContent = `Collecting melodic information… ${this.sequence.values.length.toLocaleString()} / 5,000 voiced frames`; return; }
     const now = performance.now(); if (!this.inferencePending && now - this.lastInferenceAt > 2500) this.infer();
